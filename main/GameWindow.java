@@ -7,8 +7,9 @@ public class GameWindow {
 	private JFrame jframe;
 
 	public GameWindow(GamePanel gamePanel) {
-
+						//casting ^^
 		jframe = new JFrame();
+		//creating new object
 		
 		
 		jframe.setSize(400, 400);
