@@ -21,7 +21,7 @@ package inputs;
 
 		@Override
 		public void mouseMoved(MouseEvent e) {
-			gamePanel.setRectPos(e.getX(), e.getY());
+		//	gamePanel.setRectPos(e.getX(), e.getY());
 
 		}
 

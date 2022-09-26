@@ -1,8 +1,10 @@
 package main;
 //this class is used to compose GamePanel &GameWindow
-public class Game {
+public class Game implements Runnable {
 	private GameWindow gameWindow;
 	private GamePanel gamePanel;
+	private Thread gameThread;
+	private final int FPS_SET=120;
 	
 	public Game() {
 		
@@ -12,6 +14,38 @@ public class Game {
 		gameWindow= new GameWindow(gamePanel);
 		//creates gamewindow obbject
 		gamePanel.requestFocus();
+		startGameLoop();
+		
+		
+	}
+	private void startGameLoop() {
+		gameThread=new Thread(this);
+		gameThread.start();
+	}
+
+	@Override
+	public void run() {
+		
+		double timePerFrame=1000000000/FPS_SET;
+		long lastFrame= System.nanoTime();	
+		long now = System.nanoTime();
+		int frames = 0;
+		long lastCheck=System.currentTimeMillis();
+		while(true) {
+			now=System.nanoTime();
+			if(now - lastFrame>=timePerFrame) {
+				gamePanel.repaint();
+				lastFrame=System.nanoTime();
+				frames++;
+			}
+			
+			if (System.currentTimeMillis() - lastCheck >= 1000) {
+				lastCheck = System.currentTimeMillis();
+				System.out.println("fps " + frames);
+				frames = 0;
+
+			}
+		}
 		
 		
 	}
