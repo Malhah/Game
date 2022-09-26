@@ -11,6 +11,7 @@ public class Game {
 		//creates game panel object
 		gameWindow= new GameWindow(gamePanel);
 		//creates gamewindow obbject
+		gamePanel.requestFocus();
 		
 		
 	}
