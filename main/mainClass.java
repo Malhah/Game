@@ -1,12 +1,9 @@
 package main;
 
-public class mainClass {
+public class MainClass {
 
 	public static void main(String[] args) {
-		
 		new Game();
-	//call the GameClass
 	}
-	
 
 }
